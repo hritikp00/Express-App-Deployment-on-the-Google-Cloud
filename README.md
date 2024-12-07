@@ -27,7 +27,7 @@ node app.js
 
 ## Console Deployment
 
-5. Redis
+4. Redis
 
 Setup Redis & Replace "localhost" with IP in app.js.
 
