@@ -12,7 +12,6 @@ Create an Express app with two buttons: blue and red. Deploy the app using Googl
 - Docker
 
 ## Setup Locally
-
 1. Clone the repository.
 2. Install dependencies:
 
