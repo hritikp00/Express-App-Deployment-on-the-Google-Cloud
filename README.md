@@ -14,17 +14,21 @@ Create an Express app with two buttons: blue and red. Deploy the app using Googl
 ## Setup Locally
 1. Clone the repository.
 2. Install dependencies:
-npm install
 3. Install Redis locally or use a cloud instance.
-4. Run the app:
-
+npm init -y 
+npm install express redis @google-cloud/pubsub
+5. Run the app:
 node app.js
+
 ## Deployment
 To deploy the app on Google Cloud Run, use the following instructions:
 1. Build and push the Docker image.
-2. Deploy using Pulumi:
+docker build -t gcr.io/YOUR_PROJECT_ID/express-app .
+docker push gcr.io/YOUR_PROJECT_ID/express-app
 
+3. Deploy using Pulumi:
 pulumi up
+
 ## Public URL
 
 You can access the deployed app here: https://express-app-846971326240.us-central1.run.app
