@@ -14,7 +14,6 @@ Create an Express app with two buttons: blue and red. Deploy the app using Googl
 ## Setup Locally
 1. Clone the repository.
 2. Install dependencies:
-
 npm install
 3. Install Redis locally or use a cloud instance.
 4. Run the app:
@@ -22,7 +21,6 @@ npm install
 node app.js
 ## Deployment
 To deploy the app on Google Cloud Run, use the following instructions:
-
 1. Build and push the Docker image.
 2. Deploy using Pulumi:
 
@@ -32,7 +30,6 @@ pulumi up
 You can access the deployed app here: https://express-app-846971326240.us-central1.run.app
 
 ## Rate Limiting
-
 - Blue and Red buttons are rate-limited to 10 clicks per minute.
 - Notifications are published to Google Cloud Pub/Sub when limits are reached.
 
