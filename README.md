@@ -13,14 +13,27 @@ Create an Express app with two buttons: blue and red. Deploy the app using Googl
 
 ## Setup Locally
 1. Clone the repository.
+
+git clone <repository_url>
+
 2. Install dependencies:
-3. Install Redis locally or use a cloud instance.
+Install Redis locally or use a cloud instance.
 
 npm init -y 
 npm install express redis @google-cloud/pubsub
 
-5. Run the app:
+3. Run the app:
 node app.js
+
+## Console Deployment
+
+5. Redis
+
+Setup Redis & Replace "localhost" with IP in app.js.
+
+5. PubSub
+
+   Create pubsub topic "rate-limit-topic"
 
 ## Deployment
 To deploy the app on Google Cloud Run, use the following instructions:
@@ -62,6 +75,17 @@ gcloud run deploy express-app \
 
 4. Deploy using Pulumi:
 
+Create Service  Account with required roles 
+
+roles/run.admin (Cloud Run Admin)
+roles/pubsub.admin (Pub/Sub Admin)
+roles/iam.serviceAccountUser (Service Account User)
+roles/storage.admin (if you need access to Google Cloud Storage for container images)
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-key.json"
+set GOOGLE_APPLICATION_CREDENTIALS="C:\path\to\your\service-account-key.json"
+
+npm install -g pulumi
+
 curl -fsSL https://get.pulumi.com | sh
 
 pulumi version
@@ -73,7 +97,14 @@ source ~/.bashrc
 node -v
 npm -v
 
+npm install @pulumi/gcp @pulumi/pulumi
+
 pulumi login
+
+pulumi new typescript
+
+touch index.ts 
+
 pulumi up
 
 ## Public URL
