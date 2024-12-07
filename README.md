@@ -32,16 +32,25 @@ docker push gcr.io/YOUR_PROJECT_ID/express-app
 To Test Locally
 
 docker build -t express-app .
+
 docker run -p 8080:8080 express-app
+
 docker images
-docker ps 
-docker stop "container id" 
+
+docker ps
+
+docker stop "container id"
+
 docker rmi -f "id"
 
 To check the ports are in used
-lsof -i :3000
+
+lsof -i :8080
+
 kill -9 <PID>
-netstat -tuln | grep :3000
+
+netstat -tuln | grep :8080
+
 
 
 2. To Deploy Image from container registry to Cloud Run using cli.
@@ -54,11 +63,16 @@ gcloud run deploy express-app \
 4. Deploy using Pulumi:
 
 curl -fsSL https://get.pulumi.com | sh
+
 pulumi version
+
 export PATH=$PATH:$HOME/.pulumi/bin
+
 source ~/.bashrc 
+
 node -v
 npm -v
+
 pulumi login
 pulumi up
 
