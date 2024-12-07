@@ -4,7 +4,7 @@ const { PubSub } = require('@google-cloud/pubsub');
 const app = express();
 
 // Redis client setup
-const redisClient = redis.createClient({ host: '10.75.121.11', port: 6379 }); // or connect to Redis Cloud
+const redisClient = redis.createClient({ host: 'localhost', port: 6379 }); // or connect to Redis Cloud
 
 // Google Cloud Pub/Sub setup
 const pubsub = new PubSub();
